@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --watch ./src -e ts --exec \"ts-node --project ./tsconfig.json ./src/index\""
+    "dev": "nodemon --watch ./src -e ts --exec \"ts-node -T --project ./tsconfig.json ./src/index\"",
+    "prebuild": "tsc --build --clean",
+    "build": "tsc --build",
+    "start": "node index.js",
+    "zip": "cp ./package.json ./dist && cd dist && zip -r ../application.zip ."
   },
   "repository": {
     "type": "git",
@@ -18,36 +22,18 @@
   },
   "homepage": "https://github.com/doodoo-storage/klay-token-server#readme",
   "dependencies": {
-    "aws-sdk": "^2.1054.0",
-    "bignumber.js": "^9.0.2",
-    "caver-js": "^1.6.5",
-    "class-transformer": "^0.5.1",
-    "class-validator": "^0.13.2",
+    "@types/express": "^4.17.13",
     "cors": "^2.8.5",
-    "dotenv": "^10.0.0",
+    "dotenv": "^14.2.0",
     "env-var": "^7.1.1",
     "express": "^4.17.2",
-    "ipfs-http-client": "^55.0.0",
-    "lodash": "^4.17.21",
-    "multer": "^1.4.4",
-    "multer-s3": "^2.10.0",
     "mysql2": "^2.3.3",
-    "node-cron": "^3.0.0",
-    "typeorm": "^0.2.41",
-    "uuid": "^8.3.2"
+    "typeorm": "^0.2.41"
   },
   "devDependencies": {
-    "@types/bignumber.js": "^5.0.0",
     "@types/cors": "^2.8.12",
     "@types/dotenv": "^8.2.0",
-    "@types/express": "^4.17.13",
-    "@types/lodash": "^4.14.178",
-    "@types/multer": "^1.4.7",
-    "@types/multer-s3": "^2.7.11",
-    "@types/node-cron": "^3.0.1",
-    "@types/uuid": "^8.3.4",
     "nodemon": "^2.0.15",
-    "ts-node": "^10.4.0",
     "typescript": "^4.5.4"
   }
 }

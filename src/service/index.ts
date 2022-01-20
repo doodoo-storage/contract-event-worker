@@ -1,0 +1,1 @@
+export { createTokenContract } from './create-token-contract';
